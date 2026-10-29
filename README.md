@@ -5,7 +5,7 @@ An AI can add `/reports` tomorrow. Your platform still owns who can read a repor
 Six small examples run on **both Workers for Platforms and Dynamic Workers**. Each uses the same signed tokens, policies, app code, and assertions.
 
 ```mermaid
-flowchart LR
+flowchart TB
   Visitor --> Gate[Platform Worker<br/>Verify identity and route policy]
   Gate -->|Allowed| App[Generated app]
   Gate -->|Denied| Reject[401 / 403 / 404<br/>App never runs]
