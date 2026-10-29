@@ -58,7 +58,7 @@ curl -i "$BASE_URL/dynamic/manifest/profile" -H "Authorization: Bearer $ALICE" #
 curl -i "$BASE_URL/dynamic/rpc/reports/alice" -H "Authorization: Bearer $BOB"  # 404
 ```
 
-All data is synthetic. Alice and Bob belong to `acme`; each may read only their own report. A different tenant cannot access either report.
+All data is synthetic. Every authenticated `acme` member can open this example app; Alice and Bob may each read only their own report. A different tenant cannot access either report.
 
 ## Choose the check
 
