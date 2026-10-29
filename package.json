@@ -1,0 +1,30 @@
+{
+  "name": "vibe-coding-authn",
+  "version": "1.0.0",
+  "description": "Minimal authentication and authorization patterns for Workers for Platforms and Dynamic Workers",
+  "scripts": {
+    "setup": "node scripts/setup.mjs && node scripts/bundle.mjs",
+    "dev": "cf dev",
+    "build": "node scripts/bundle.mjs && cf build",
+    "typecheck": "cf workers types && tsc",
+    "format": "prettier --write src scripts tests deploy cloudflare.config.ts vite.config.ts tsconfig.json app-policy.json package.json README.md",
+    "test": "node --test tests/*.test.mjs",
+    "deploy": "node scripts/deploy.mjs"
+  },
+  "type": "module",
+  "dependencies": {
+    "jose": "^6.2.14"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "^2.0.0-beta.v.7",
+    "cf": "^1.0.0-beta.25",
+    "esbuild": "^0.28.2",
+    "prettier": "^3.9.10",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5"
+  },
+  "private": true,
+  "engines": {
+    "node": "^24.22.0 || >=26.12.0"
+  }
+}

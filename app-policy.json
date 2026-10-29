@@ -1,0 +1,18 @@
+{
+  "tenant": "acme",
+  "routes": [
+    { "method": "GET", "path": "/", "access": "public", "handler": "home" },
+    {
+      "method": "GET",
+      "path": "/profile",
+      "access": "member",
+      "handler": "profile"
+    },
+    {
+      "method": "GET",
+      "path": "/admin",
+      "access": "reports:admin",
+      "handler": "admin"
+    }
+  ]
+}

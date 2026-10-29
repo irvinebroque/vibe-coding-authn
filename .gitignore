@@ -1,0 +1,8 @@
+node_modules/
+.cloudflare/
+.wrangler/
+.local/
+src/bundles/
+.env*
+.dev.vars*
+*.log
