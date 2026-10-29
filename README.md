@@ -1,8 +1,21 @@
-# Auth for generated apps
+# Auth for AI-generated apps
 
-An AI can add `/reports` tomorrow. Your platform still owns who can read a report today.
+You run a platform where customers use AI to build apps. Some endpoints must be public; others must require sign-in or restrict access to one user's data.
 
-Six small examples run on **both Workers for Platforms and Dynamic Workers**. Each uses the same signed tokens, policies, app code, and assertions.
+**You don't know which endpoints the AI will create, and you can't rely on it to add every auth check correctly.** Your platform still needs to enforce rules like these:
+
+| Example app endpoint | Who should have access?                           |
+| -------------------- | ------------------------------------------------- |
+| `GET /`              | Anyone — this is the public homepage.             |
+| `GET /profile`       | Signed-in members of the customer's organization. |
+| `GET /reports/alice` | Alice can read her report. Bob cannot.            |
+
+This repo shows how to enforce those rules **outside generated app code**:
+
+1. Validate each app's list of public and private routes **when it is published**, then check incoming requests **before invoking the app**.
+2. Keep private data behind platform-owned operations such as `reports.read(id)` that **check access to the requested record on every read**. The app cannot skip that check by forgetting to call an auth helper.
+
+Six small, runnable examples demonstrate these checks and alternative designs on **both Workers for Platforms and Dynamic Workers**.
 
 ```mermaid
 flowchart TB
